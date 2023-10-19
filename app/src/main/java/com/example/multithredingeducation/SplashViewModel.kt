@@ -4,10 +4,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineName
+import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import java.lang.NumberFormatException
 
 class SplashViewModel : ViewModel() {
 
@@ -62,7 +67,6 @@ class SplashViewModel : ViewModel() {
     }
 
 
-
     private suspend fun testCoroutine() {
         delay(100)
     }
@@ -70,4 +74,30 @@ class SplashViewModel : ViewModel() {
     private suspend fun testCoroutine2() {
         delay(100)
     }
+}
+
+fun main() {
+    runBlocking(context = SupervisorJob() + Dispatchers.IO + CoroutineName("jopa")) {
+        launch(
+            context = Job() + Dispatchers.Main + CoroutineName("khjewgfkejhwg"),
+            start = CoroutineStart.DEFAULT,
+            block = {
+                test4()
+                launch {
+
+                }
+            }
+        )
+        launch {
+
+        }
+        val differed = async {
+            400
+        }
+        val result = differed.await()
+    }
+}
+
+fun test4() {
+    throw NumberFormatException()
 }
