@@ -1,8 +1,13 @@
-package com.example.multithredingeducation.data.network.entities
+package com.example.multithredingeducation.data.entities
 
 import com.example.multithredingeducation.domain.entities.Article
 import com.example.multithredingeducation.domain.entities.ArticleInfo
 import com.google.gson.annotations.SerializedName
+
+
+// для парсинга ответа из сети. Обрати внимание, что объекты находятся в
+// дата слое и не должны попасть в доменный!! Мы их тут же должны превратить в
+// в сущности доменного слоя и отдать ему в качестве ответа на запрос
 
 data class ArticleInfoResponse(
     @SerializedName("copyright")
@@ -23,6 +28,9 @@ data class ArticleResponse(
     val snippet: String
 )
 
+// эта штука называется маппер. Она один тип данных преобразует в другой.
+// Обрати внимаени, что это и функция высшего порядка и extension функция одновмеренно
+// в ней то мы и преобразуем наш объект из дата сущности в доменную
 val toDomainModel: ArticleInfoResponse.() -> ArticleInfo = {
     ArticleInfo(
         copyright = copyright,

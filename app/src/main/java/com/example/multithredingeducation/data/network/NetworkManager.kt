@@ -9,6 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 
+// в этот класс особо не вникай. Тут всякие чудеса для работы сети происходят
 class NetworkManager {
 
     private val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().apply {

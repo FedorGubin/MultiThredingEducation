@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.multithredingeducation.databinding.ItemArticleBinding
 import com.example.multithredingeducation.domain.entities.Article
 
+// Самый простой адаптер. Надеюсь тут всё понятно
 class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>() {
 
     private val items: MutableList<Article> = mutableListOf()
@@ -17,6 +18,7 @@ class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>() 
     fun updateItems(newItems: List<Article>) {
         items.clear()
         items.addAll(newItems)
+        // Оповещает, что ВСЕ данные в списке изменились
         notifyDataSetChanged()
     }
 

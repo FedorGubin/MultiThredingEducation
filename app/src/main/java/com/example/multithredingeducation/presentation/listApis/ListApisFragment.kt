@@ -4,11 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.multithredingeducation.databinding.FragmentListApisBinding
+import com.example.multithredingeducation.presentation.BaseFragment
 
-class ListApisFragment : Fragment() {
+// экран с списком кнопок для выбора апи. Используется байндинг. В фрагментах
+// особенность - binding задаётся на этапе onCreateView жизненного цикла и на
+// onDestroyView - _binding = null.
+// Это важно!!
+class ListApisFragment : BaseFragment() {
 
     private var _binding: FragmentListApisBinding? = null
     private val binding get() = _binding!!

@@ -42,18 +42,22 @@ android {
 }
 
 dependencies {
+    // библиотека для перехвата запросов в сеть для отображения запросов в логах android studio
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+    // библиотека для походов в сеть
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    // для автоматического парсинга json в объект, который мы создали для запроса
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    // библиотека для парсинга. В этом проекте работает в паре с пердыдущей
     implementation("com.google.code.gson:gson:2.9.0")
 
+    // навигация фрагментов
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.4")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.4")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
     implementation("androidx.activity:activity-ktx:1.8.0")
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
