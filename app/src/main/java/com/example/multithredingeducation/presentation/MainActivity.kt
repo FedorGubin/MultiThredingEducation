@@ -1,8 +1,9 @@
-package com.example.multithredingeducation
+package com.example.multithredingeducation.presentation
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.example.multithredingeducation.domain.MainViewModel
 import com.example.multithredingeducation.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -15,6 +16,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
     }
 }

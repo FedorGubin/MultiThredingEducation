@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MultiThredingEducation</string>
+    <string name="article_search">Article search</string>
 </resources>
