@@ -4,5 +4,5 @@
     <string name="new_articles_chip">new articles</string>
     <string name="old_articles_chip">old articles</string>
     <string name="relevance_articles_chip">relevance articles</string>
-    <string name="read_all">Читать полностью</string>
+    <string name="read_all">Читать полностью…</string>
 </resources>

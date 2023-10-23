@@ -7,6 +7,5 @@ data class ArticleInfo(
 
 data class Article(
     val webLink: String,
-    val snippet: String,
-    val imageUrl: String
+    val snippet: String
 )

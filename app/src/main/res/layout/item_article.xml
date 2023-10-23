@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="8dp">
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="8dp">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -30,6 +30,7 @@
                 android:id="@+id/urlArticle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autoLink="web"
                 android:text="@string/read_all" />
 
         </LinearLayout>
