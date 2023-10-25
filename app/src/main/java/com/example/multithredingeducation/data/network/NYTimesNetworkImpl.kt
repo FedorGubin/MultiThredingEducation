@@ -1,8 +1,8 @@
 package com.example.multithredingeducation.data.network
 
-import com.example.multithredingeducation.data.entities.toDomainModel
 import com.example.multithredingeducation.domain.dataInterfaces.BaseResponse
 import com.example.multithredingeducation.domain.dataInterfaces.NYTimesNetwork
+import com.example.multithredingeducation.domain.entities.Article
 import com.example.multithredingeducation.domain.entities.ArticleInfo
 import com.example.multithredingeducation.domain.entities.ArticleSort
 
@@ -24,6 +24,16 @@ class NYTimesNetworkImpl : NYTimesNetwork {
             }
         )
         // ну и тут полученные ответ мы преобразовываем в доменную сущность
-        return manager.handleResponse(response, toDomainModel)
+        return manager.handleResponse(response) {
+            ArticleInfo(
+                copyright = this.copyright,
+                articles = this.response.docs.map { responseArticle ->
+                    Article(
+                        webLink = responseArticle.webUrl,
+                        snippet = responseArticle.snippet
+                    )
+                }
+            )
+        }
     }
 }

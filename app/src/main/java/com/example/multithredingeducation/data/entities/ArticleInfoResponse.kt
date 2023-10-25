@@ -1,7 +1,5 @@
 package com.example.multithredingeducation.data.entities
 
-import com.example.multithredingeducation.domain.entities.Article
-import com.example.multithredingeducation.domain.entities.ArticleInfo
 import com.google.gson.annotations.SerializedName
 
 
@@ -27,18 +25,3 @@ data class ArticleResponse(
     @SerializedName("snippet")
     val snippet: String
 )
-
-// эта штука называется маппер. Она один тип данных преобразует в другой.
-// Обрати внимаени, что это и функция высшего порядка и extension функция одновмеренно
-// в ней то мы и преобразуем наш объект из дата сущности в доменную
-val toDomainModel: ArticleInfoResponse.() -> ArticleInfo = {
-    ArticleInfo(
-        copyright = copyright,
-        articles = response.docs.map { responseArticle ->
-            Article(
-                webLink = responseArticle.webUrl,
-                snippet = responseArticle.snippet
-            )
-        }
-    )
-}

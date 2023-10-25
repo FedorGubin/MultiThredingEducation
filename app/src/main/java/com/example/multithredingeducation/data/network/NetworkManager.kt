@@ -2,6 +2,7 @@ package com.example.multithredingeducation.data.network
 
 import com.example.multithredingeducation.data.network.apis.NYTimesApi
 import com.example.multithredingeducation.domain.dataInterfaces.BaseResponse
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
@@ -14,13 +15,25 @@ class NetworkManager {
 
     private val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
+    }
 
+    private val apiQueryInterceptor: Interceptor = Interceptor { chain ->
+        val originalRequest = chain.request()
+        val urlWithQuery = originalRequest.url.newBuilder()
+            .addQueryParameter("api-key", "CaJoFMx4ShyyG4w18vjmLA00LcvPqlGc")
+            .build()
+        val request = originalRequest.newBuilder().url(urlWithQuery).build()
+        chain.proceed(request)
     }
 
     private val nytimesRetrofitClient = Retrofit.Builder()
         .baseUrl("https://api.nytimes.com")
         .addConverterFactory(GsonConverterFactory.create())
-        .client(OkHttpClient.Builder().addInterceptor(interceptor).build())
+        .client(OkHttpClient.Builder()
+            .addInterceptor(apiQueryInterceptor)
+            .addInterceptor(interceptor)
+            .build()
+        )
         .build()
 
     val nytimesApi: NYTimesApi = nytimesRetrofitClient.create()
