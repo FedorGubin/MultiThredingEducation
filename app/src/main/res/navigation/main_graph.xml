@@ -20,7 +20,15 @@
         <action
             android:id="@+id/action_listApisFragment_to_articleSearchFragment"
             app:destination="@id/articleSearchFragment" />
+        <action
+            android:id="@+id/action_listApisFragment_to_topStoriesFragment"
+            app:destination="@id/topStoriesFragment" />
 
     </fragment>
+    <fragment
+        android:id="@+id/topStoriesFragment"
+        android:name="com.example.multithredingeducation.presentation.topStories.TopStoriesFragment"
+        android:label="TopStoriesFragment"
+        tools:layout="@layout/fragment_top_stories"/>
 
 </navigation>

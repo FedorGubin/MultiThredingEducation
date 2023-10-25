@@ -31,6 +31,10 @@ class ListApisFragment : BaseFragment() {
             val action = ListApisFragmentDirections.actionListApisFragmentToArticleSearchFragment()
             findNavController().navigate(action)
         }
+        binding.btnTopStories.setOnClickListener {
+            val action = ListApisFragmentDirections.actionListApisFragmentToTopStoriesFragment()
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {

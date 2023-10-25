@@ -19,6 +19,13 @@
             android:layout_height="wrap_content"
             android:text="@string/article_search" />
 
+        <Button
+            android:id="@+id/btn_top_stories"
+            style="@style/ButtonMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/top_stories" />
+
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>
