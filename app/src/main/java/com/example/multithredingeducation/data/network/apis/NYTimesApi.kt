@@ -1,6 +1,7 @@
 package com.example.multithredingeducation.data.network.apis
 
 import com.example.multithredingeducation.data.entities.ArticleInfoResponse
+import com.example.multithredingeducation.data.entities.TopStoriesInfoResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -14,4 +15,7 @@ interface NYTimesApi {
     suspend fun getArticles(
         @Query("sort") sort: String
     ): Response<ArticleInfoResponse>
+
+    @GET("/svc/topstories/v2/home.json")
+    suspend fun getTopStories(): Response<TopStoriesInfoResponse>
 }

@@ -5,6 +5,7 @@ import com.example.multithredingeducation.domain.dataInterfaces.NYTimesNetwork
 import com.example.multithredingeducation.domain.entities.Article
 import com.example.multithredingeducation.domain.entities.ArticleInfo
 import com.example.multithredingeducation.domain.entities.ArticleSort
+import com.example.multithredingeducation.domain.entities.TopStoriesInfo
 
 // Это мы уже в дата слое и расширили интерфейс из доменного, что бы понять,
 // как нам взаимодействовать с ним
@@ -33,6 +34,16 @@ class NYTimesNetworkImpl : NYTimesNetwork {
                         snippet = responseArticle.snippet
                     )
                 }
+            )
+        }
+    }
+
+    override suspend fun getTopStories(): BaseResponse<TopStoriesInfo> {
+        val manager = NetworkManager()
+        val response = manager.nytimesApi.getTopStories()
+        return manager.handleResponse(response){
+            TopStoriesInfo(
+                copyright = copyright
             )
         }
     }
