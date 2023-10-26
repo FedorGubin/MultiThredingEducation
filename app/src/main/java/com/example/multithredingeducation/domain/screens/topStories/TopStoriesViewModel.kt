@@ -21,9 +21,13 @@ class TopStoriesViewModel(
     val copyrightText: LiveData<String> = data.map {
         it.copyright
     }.distinctUntilChanged()
-init{
-    requestTopStories()
-}
+
+    // todo добавить liveData по аналогии с copyrightText в которой будет список статей
+
+    init {
+        requestTopStories()
+    }
+
     private fun requestTopStories() {
         viewModelScope.launch(
             context = SupervisorJob() + Dispatchers.IO

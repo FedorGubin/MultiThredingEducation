@@ -41,9 +41,10 @@ class NYTimesNetworkImpl : NYTimesNetwork {
     override suspend fun getTopStories(): BaseResponse<TopStoriesInfo> {
         val manager = NetworkManager()
         val response = manager.nytimesApi.getTopStories()
-        return manager.handleResponse(response){
+        return manager.handleResponse(response) {
             TopStoriesInfo(
                 copyright = copyright
+                // todo добавить в маппер запись списка статей
             )
         }
     }

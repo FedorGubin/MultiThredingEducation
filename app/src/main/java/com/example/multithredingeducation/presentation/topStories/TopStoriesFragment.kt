@@ -14,6 +14,8 @@ class TopStoriesFragment : BaseFragment() {
     private val binding: FragmentTopStoriesBinding get() = _binding!!
     private val viewModel: TopStoriesViewModel by viewModels()
 
+    // TODO создать переменную адаптера для ресайклер вью
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,5 +33,7 @@ class TopStoriesFragment : BaseFragment() {
         viewModel.copyrightText.observe(viewLifecycleOwner) {
             binding.text.text = it
         }
+        // todo добавить подписку на liveData с списком статей. Мы должны при обновлении
+        // данных в лайв дате в адаптер передать наши новые статьи
     }
 }
