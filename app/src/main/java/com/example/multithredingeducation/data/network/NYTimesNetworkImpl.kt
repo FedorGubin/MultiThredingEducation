@@ -43,8 +43,8 @@ class NYTimesNetworkImpl : NYTimesNetwork {
         val response = manager.nytimesApi.getTopStories()
         return manager.handleResponse(response) {
             TopStoriesInfo(
-                copyright = copyright
-                // todo добавить в маппер запись списка статей
+                copyright = copyright,
+                articles = this.articles.map { it.title }
             )
         }
     }

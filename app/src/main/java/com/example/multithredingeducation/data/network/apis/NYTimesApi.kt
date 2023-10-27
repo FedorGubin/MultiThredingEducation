@@ -1,7 +1,7 @@
 package com.example.multithredingeducation.data.network.apis
 
-import com.example.multithredingeducation.data.entities.ArticleInfoResponse
-import com.example.multithredingeducation.data.entities.TopStoriesInfoResponse
+import com.example.multithredingeducation.data.network.entities.ArticleInfoResponse
+import com.example.multithredingeducation.data.network.entities.TopStoriesInfoResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

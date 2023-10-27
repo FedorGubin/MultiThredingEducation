@@ -34,7 +34,11 @@ class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>() 
 
     class ArticleViewHolder(
         private val parentView: View,
-        private val binding: ItemArticleBinding = ItemArticleBinding.inflate(LayoutInflater.from(parentView.context))
+        private val binding: ItemArticleBinding = ItemArticleBinding.inflate(
+            LayoutInflater.from(
+                parentView.context
+            )
+        )
     ) : ViewHolder(binding.root) {
         fun bind(item: Article) {
             with(binding) {

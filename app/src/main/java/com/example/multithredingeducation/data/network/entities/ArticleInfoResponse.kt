@@ -1,4 +1,4 @@
-package com.example.multithredingeducation.data.entities
+package com.example.multithredingeducation.data.network.entities
 
 import com.google.gson.annotations.SerializedName
 

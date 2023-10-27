@@ -21,8 +21,9 @@ class TopStoriesViewModel(
     val copyrightText: LiveData<String> = data.map {
         it.copyright
     }.distinctUntilChanged()
-
-    // todo добавить liveData по аналогии с copyrightText в которой будет список статей
+    val articles: LiveData<List<String>> = data.map {
+        it.articles
+    }
 
     init {
         requestTopStories()
